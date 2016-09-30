@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import urlparse
+import json
 
 import requests
-from django.core.serializers import json
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
