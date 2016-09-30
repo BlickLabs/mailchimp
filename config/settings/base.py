@@ -38,6 +38,7 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    'corsheaders',
     #'suit',
 )
 
@@ -141,7 +142,4 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-CORS_ORIGIN_WHITELIST = (
-    'mccosmetics.mx',
-    'www.mccosmetics.mx',
-)
+CORS_ORIGIN_ALLOW_ALL = True
