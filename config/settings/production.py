@@ -26,25 +26,9 @@ ALLOWED_HOSTS = ["*"]
 
 # DATABASE
 # -----------------------------------------------------------------------------
-DATABASES = {
-    'default': dj_database_url.config()
-}
 
 # STATIC FILE CONFIGURATION
 # -----------------------------------------------------------------------------
-INSTALLED_APPS += ('storages', )
-
-STATIC_URL = env("AWS_BUCKET_URL")
-
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
-AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
-
-AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
-
-AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
-
-AWS_S3_HOST = env("AWS_S3_HOST")
 
 # MEDIA CONFIGURATION
 # -----------------------------------------------------------------------------

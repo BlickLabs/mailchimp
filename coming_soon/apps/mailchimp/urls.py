@@ -7,5 +7,8 @@ from . import views
 
 urlpatterns = [
 
+    url(regex='^mccosmeticsmx/$',
+    view=views.CosmeticsNewsletterView.as_view(),
+    name='mccosmeticsmx'),
 
 ]

@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import json
+
 import urlparse
 
 import requests
+from django.core.serializers import json
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View
-from django.conf import settings
 
 
 class CosmeticsNewsletterView(View):
@@ -21,8 +21,8 @@ class CosmeticsNewsletterView(View):
     def post(request):
         email = request.POST.get('email')
         endpoint = urlparse.urljoin(
-            settings.MAILCHIMP_API_ROOT,
-            'lists/%s/members/' % settings.MAILCHIMP_NEWSLETTER_LIST
+            'https://us1.api.mailchimp.com/3.0/',
+            'lists/495e6d8931/members/'
         )
         data = {
             "email_address": email,
@@ -30,5 +30,5 @@ class CosmeticsNewsletterView(View):
         }
         data = json.dumps(data)
         response = requests.post(
-            endpoint, auth=('apikey', settings.MAILCHIMP_API_KEY), data=data)
+            endpoint, auth=('apikey', '9cade3c4fd50d8ecf2246113a864d60c-us1'), data=data)
         return JsonResponse(response.json())
