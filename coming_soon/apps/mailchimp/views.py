@@ -32,3 +32,26 @@ class CosmeticsNewsletterView(View):
         response = requests.post(
             endpoint, auth=('apikey', '9cade3c4fd50d8ecf2246113a864d60c-us1'), data=data)
         return JsonResponse(response.json())
+
+
+class VelttNewsletterView(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(VelttNewsletterView, self)\
+            .dispatch(request, *args, **kwargs)
+
+    @staticmethod
+    def post(request):
+        email = request.POST.get('email')
+        endpoint = urlparse.urljoin(
+            'https://us1.api.mailchimp.com/3.0/',
+            'lists/1b596219ee/members/'
+        )
+        data = {
+            "email_address": email,
+            "status": "subscribed",
+        }
+        data = json.dumps(data)
+        response = requests.post(
+            endpoint, auth=('apikey', '9cade3c4fd50d8ecf2246113a864d60c-us1'), data=data)
+        return JsonResponse(response.json())
