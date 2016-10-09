@@ -143,12 +143,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-CORS_ORIGIN_WHITELIST = (
-    'mccosmetics.mx',
-    'www.mccosmetics.mx',
-    'veltt.mx',
-    'www.veltt.mx',
-)
+CORS_ORIGIN_ALLOW_ALL = True
 
 MAILCHIMP_BLICK_API_KEY = env("MAILCHIMP_BLICK_API_KEY")
 MAILCHIMP_BLICK_SHARD = env("MAILCHIMP_BLICK_SHARD")
