@@ -15,4 +15,8 @@ urlpatterns = [
     view=views.VelttNewsletterView.as_view(),
     name='veltt'),
 
+    url(regex='^blick/$',
+        view=views.BlickNewsletterView.as_view(),
+        name='blick'),
+
 ]
