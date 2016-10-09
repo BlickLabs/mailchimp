@@ -7,14 +7,6 @@ from . import views
 
 urlpatterns = [
 
-    url(regex='^mccosmeticsmx/$',
-    view=views.CosmeticsNewsletterView.as_view(),
-    name='mccosmeticsmx'),
-
-    url(regex='^veltt/$',
-    view=views.VelttNewsletterView.as_view(),
-    name='veltt'),
-
     url(regex='^blick/$',
         view=views.BlickNewsletterView.as_view(),
         name='blick'),
