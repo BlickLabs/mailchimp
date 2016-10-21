@@ -33,3 +33,25 @@ class BlickNewsletterView(View):
         response = requests.post(
             endpoint, auth=('apikey', settings.MAILCHIMP_BLICK_API_KEY), data=data)
         return JsonResponse(response.json())
+
+
+class DonDineroNewsletterView(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(DonDineroNewsletterView, self)\
+            .dispatch(request, *args, **kwargs)
+
+    @staticmethod
+    def post(request):
+        email = request.POST.get('email')
+        endpoint = urlparse.urljoin(
+            settings.MAILCHIMP_DONDINERO_API_ROOT, 'lists/d89ba3634d/members/'
+        )
+        data = {
+            "email_address": email,
+            "status": "subscribed",
+        }
+        data = json.dumps(data)
+        response = requests.post(
+            endpoint, auth=('apikey', settings.MAILCHIMP_DONDINERO_API_KEY), data=data)
+        return JsonResponse(response.json())

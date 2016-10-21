@@ -11,4 +11,8 @@ urlpatterns = [
         view=views.BlickNewsletterView.as_view(),
         name='blick'),
 
+    url(regex='^dondinero/$',
+        view=views.DonDineroNewsletterView.as_view(),
+        name='dondinero'),
+
 ]
