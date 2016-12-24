@@ -11,8 +11,12 @@ urlpatterns = [
         view=views.BlickNewsletterView.as_view(),
         name='blick'),
 
-    url(regex='^dondinero/$',
-        view=views.DonDineroNewsletterView.as_view(),
-        name='dondinero'),
+    url(regex='^email/sylvie/$',
+        view=views.SylvieContactView.as_view(),
+        name='sylvie'),
+
+    url(regex='^email/begona/$',
+        view=views.BegonaContactView.as_view(),
+        name='sylvie'),
 
 ]
