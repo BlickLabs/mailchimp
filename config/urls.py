@@ -21,6 +21,7 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
+    import debug_toolbar
     # This allows the error pages to be debugged during development, visit
     # these url in browser to see how these error pages look like.
     urlpatterns += [
@@ -31,5 +32,6 @@ if settings.DEBUG:
         url(r'^404/$', error_views.page_not_found, kwargs={
             'exception': Exception("Page not Found")}),
         url(r'^500/$', error_views.server_error),
+        url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \
         static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
