@@ -46,12 +46,12 @@ class SylvieContactView(View):
     def post(self, request):
         key = 'key-eb656047b090ea091ef7c5d2fbd83dc5'
         domain = 'mg.balletsylviereynaud.com'
-        recipient = 'mauriciodinki@gmail.com'
+        recipient = 'alan@blick.mx'
 
         ctx = {
             'name': request.POST.get('name'),
             'email': request.POST.get('email'),
-            'message': request.POST.get('address'),
+            'message': request.POST.get('message'),
         }
 
         body = loader.render_to_string('email/sylvie_contact.html', ctx)
@@ -87,8 +87,8 @@ class BegonaContactView(View):
         ctx = {
             'name': request.POST.get('name'),
             'email': request.POST.get('email'),
-            'message': request.POST.get('address'),
-            'address': request.POST.get('message'),
+            'message': request.POST.get('message'),
+            'address': request.POST.get('address'),
         }
 
         body = loader.render_to_string('email/begona_contact.html', ctx)
