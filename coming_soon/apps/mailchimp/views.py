@@ -72,30 +72,28 @@ class SylvieContactView(View):
         return HttpResponse(value)
 
 
-class BegonaContactView(View):
+class IndotsContactView(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
-        return super(BegonaContactView, self) \
+        return super(IndotsContactView, self) \
             .dispatch(request, *args, **kwargs)
 
     def post(self, request):
-
-        key = 'key-eb656047b090ea091ef7c5d2fbd83dc5'
-        domain = 'mg.begonafernandez.com.mx'
+        key = 'key-61ecd102818630207feb04929a82fa42'
+        domain = 'mg.indots.com'
         recipient = 'alan@blick.mx'
 
         ctx = {
             'name': request.POST.get('name'),
             'email': request.POST.get('email'),
             'message': request.POST.get('message'),
-            'address': request.POST.get('address'),
         }
 
-        body = loader.render_to_string('email/begona_contact.html', ctx)
+        body = loader.render_to_string('email/indots_contact.html', ctx)
 
         request_url = 'https://api.mailgun.net/v3/{0}/messages'.format(domain)
         request = requests.post(request_url, auth=('api', key), data={
-            'from': 'Begoña <postmaster@{0}>'.format(domain),
+            'from': 'Indots  <postmaster@{0}>'.format(domain),
             'to': recipient,
             'subject': 'Nuevo contacto desde pagina web',
             'text': body
@@ -107,3 +105,4 @@ class BegonaContactView(View):
             value = '1'
 
         return HttpResponse(value)
+2

@@ -15,8 +15,8 @@ urlpatterns = [
         view=views.SylvieContactView.as_view(),
         name='sylvie'),
 
-    url(regex='^email/begona/$',
-        view=views.BegonaContactView.as_view(),
-        name='sylvie'),
+    url(regex='^email/indots/$',
+        view=views.IndotsContactView.as_view(),
+        name='indots'),
 
 ]
