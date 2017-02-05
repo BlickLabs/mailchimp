@@ -80,8 +80,8 @@ class IndotsContactView(View):
 
     def post(self, request):
         key = 'key-61ecd102818630207feb04929a82fa42'
-        domain = 'mg.indots.com'
-        recipient = 'alan@blick.mx'
+        domain = 'indots.com'
+        recipient = 'mauriciodinki@gmail.com'
 
         ctx = {
             'name': request.POST.get('name'),
