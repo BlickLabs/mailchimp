@@ -79,8 +79,8 @@ class IndotsContactView(View):
             .dispatch(request, *args, **kwargs)
 
     def post(self, request):
-        key = 'key-61ecd102818630207feb04929a82fa42'
-        domain = 'indots.com'
+        key = 'key-5de07e0e2df132f47cfade8f2e52b89a'
+        domain = 'mg.indots.com'
         recipient = 'mauriciodinki@gmail.com'
 
         ctx = {
